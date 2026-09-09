@@ -15,7 +15,7 @@
         if (!response.ok) throw new Error('load failed');
         return response.text();
       }).then(function (html) {
-        var passwordScript = '<script>(function(){var gate=document.getElementById("accessGate");var form=document.getElementById("accessForm");var input=document.getElementById("accessPassword");var message=document.getElementById("accessMessage");function unlock(){document.body.classList.remove("locked");gate.hidden=true;gate.style.display="none";}form.addEventListener("submit",function(event){event.preventDefault();if(input.value==="zjc004006"){unlock();}else{message.textContent="密码不正确，请重新输入。";input.select();}});}());</' + 'script>';
+        var passwordScript = '<script>(function(){var gate=document.getElementById("accessGate");var form=document.getElementById("accessForm");var input=document.getElementById("accessPassword");var message=document.getElementById("accessMessage");function unlock(){document.body.classList.remove("locked");gate.hidden=true;gate.style.display="none";}form.addEventListener("submit",function(event){event.preventDefault();if(input.value==="jiacongzhang"){unlock();}else{message.textContent="密码不正确，请重新输入。";input.select();}});}());</' + 'script>';
         html = html.replace(/\s*<script>[\s\S]*?<\/script>\s*<\/body>/, '\n</body>');
         html = html.replace('</section>\n    <header class="site-header">', '</section>\n' + passwordScript + '\n    <header class="site-header">');
         document.open();
