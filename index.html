@@ -1,30 +1,187 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>张佳聪｜宣传内容创作与视觉传播</title>
-  <style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#142235;color:#f9f6ef;font:16px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}.loading{text-align:center}.loading b{display:block;font-size:28px;margin-bottom:8px}</style>
-</head>
-<body>
-  <div class="loading"><b>张佳聪 · 视觉传播作品集</b><span>正在载入作品，请稍候…</span></div>
-  <script>
-    (function () {
-      var source = 'https://raw.githubusercontent.com/zjc004006/portfolio-site/3b8f3e720521a3183eaf7efaa6d6234cf7cc56d0/index.html';
-      fetch(source).then(function (response) {
-        if (!response.ok) throw new Error('load failed');
-        return response.text();
-      }).then(function (html) {
-        var passwordScript = '<script>(function(){var gate=document.getElementById("accessGate");var form=document.getElementById("accessForm");var input=document.getElementById("accessPassword");var message=document.getElementById("accessMessage");function unlock(){document.body.classList.remove("locked");gate.hidden=true;gate.style.display="none";}form.addEventListener("submit",function(event){event.preventDefault();if(input.value==="jiacongzhang"){unlock();}else{message.textContent="密码不正确，请重新输入。";input.select();}});}());</' + 'script>';
-        html = html.replace(/\s*<script>[\s\S]*?<\/script>\s*<\/body>/, '\n</body>');
-        html = html.replace('</section>\n    <header class="site-header">', '</section>\n' + passwordScript + '\n    <header class="site-header">');
-        document.open();
-        document.write(html);
-        document.close();
-      }).catch(function () {
-        document.body.innerHTML = '<div class="loading"><b>暂时无法载入作品</b><span>请刷新页面后重试。</span></div>';
-      });
-    }());
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="张佳聪的宣传内容创作与视觉传播作品集。" />
+    <title>张佳聪｜宣传内容创作与视觉传播</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="overrides.css" />
+    <link rel="stylesheet" href="final-polish.css" />
+    <link rel="stylesheet" href="tools.css" />
+  </head>
+  <body class="locked">
+    <section class="access-gate" id="accessGate" aria-labelledby="access-title">
+      <div class="access-gate-inner">
+        <p class="eyebrow">ZJC／PORTFOLIO · ACCESS</p>
+        <h1 id="access-title">张佳聪<br />视觉传播作品集</h1>
+        <p>请输入访问密码，浏览完整作品。</p>
+        <form class="access-form" id="accessForm">
+          <label for="accessPassword">访问密码</label>
+          <div><input id="accessPassword" type="password" autocomplete="current-password" required /><button type="submit">进入作品集 ↗</button></div>
+          <p class="access-message" id="accessMessage" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+    <script>
+      (function () {
+        var gate = document.getElementById('accessGate');
+        var form = document.getElementById('accessForm');
+        var input = document.getElementById('accessPassword');
+        var message = document.getElementById('accessMessage');
+        function unlock() {
+          document.body.classList.remove('locked');
+          gate.hidden = true;
+          gate.style.display = 'none';
+        }
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+          if (input.value === 'jiacongzhang') {
+            unlock();
+          } else {
+            message.textContent = '密码不正确，请重新输入。';
+            input.select();
+          }
+        });
+      }());
+    </script>
+    <header class="site-header">
+      <a class="wordmark" href="#top">ZJC<span>／</span>PORTFOLIO</a>
+      <nav aria-label="主导航">
+        <a href="#works">作品</a>
+        <a href="#impact">影响力</a>
+        <a href="#journey">经历</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">视觉传播作品集 · 2026</p>
+          <p class="hero-name">张佳聪</p>
+          <h1 id="hero-title">让值得被看见的<br />故事，抵达更多人。</h1>
+          <p class="hero-intro">摄影、海报、文案与排版、视频创作</p>
+          <p class="toolset"><span>擅长工具</span> Photoshop · Illustrator · After Effects · 剪映 · Premiere Pro · 秀米 · AI 辅助创作 / Vibe Coding</p>
+          <a class="button" href="#works">浏览作品 <span>↓</span></a>
+        </div>
+        <figure class="hero-image">
+          <img src="assets/photographer-portrait.png" alt="张佳聪正在进行活动摄影" />
+          <figcaption>在现场，发现值得被记录的故事。</figcaption>
+        </figure>
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+      </section>
+
+      <section class="numbers" aria-label="传播成果">
+        <div><strong>10万+</strong><span>多次获得 10万+ 内容传播成果</span></div>
+        <div><strong>53次</strong><span>带领志愿者团队获得的媒体转载与报道</span></div>
+        <div><strong>央视新闻</strong><span>多条选题获央视新闻报道</span></div>
+      </section>
+
+      <section class="section works" id="works" aria-labelledby="works-title">
+        <div class="section-intro">
+          <p class="eyebrow">01 / SELECTED WORKS</p>
+          <h2 id="works-title">作品</h2>
+          <p>从一张海报、一段文字，到一个完整的视频项目。用视觉建立印象，用镜头保存现场，用内容完成抵达。</p>
+        </div>
+
+        <div class="poster-heading"><h3>海报设计</h3><span>POSTER SERIES</span></div>
+        <div class="posters" aria-label="海报作品">
+          <img class="poster poster-a" src="assets/poster-labour-day.png" alt="五一劳动节主题海报" />
+          <img class="poster poster-b" src="assets/poster-02.png" alt="海报作品二" />
+          <img class="poster poster-c" src="assets/poster-03.jpg" alt="海报作品三" />
+          <img class="poster poster-d" src="assets/poster-04.png" alt="海报作品四" />
+        </div>
+
+        <div class="split-title"><h3>摄影</h3><span>PHOTOGRAPHY</span></div>
+        <div class="photo-grid">
+          <figure class="photo-wide"><img src="assets/velodrome.jpg" alt="亚运场馆摄影" /><figcaption>赛事现场</figcaption></figure>
+          <figure><img src="assets/meeting.jpg" alt="会议摄影" /><figcaption>会议摄影</figcaption></figure>
+          <figure><img src="assets/landscape.jpg" alt="风景摄影" /><figcaption>风景摄影</figcaption></figure>
+        </div>
+
+        <div class="split-title"><h3>排版与文案</h3><span>EDITORIAL DESIGN &amp; COPYWRITING</span></div>
+        <article class="editorial-card">
+          <div class="editorial-copy">
+            <p class="eyebrow">曾参与制作的排版内容</p>
+            <h3>排版</h3>
+            <p class="editorial-hint">选择作品后，可在右侧横向浏览完整内容</p>
+            <div class="editorial-tabs" role="tablist" aria-label="选择排版作品">
+              <button class="editorial-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="editorial-youth-weekly" data-editorial-target="editorial-youth-weekly"><span>01</span> 青年发展周报</button>
+              <button class="editorial-tab" type="button" role="tab" aria-selected="false" aria-controls="editorial-campus-walk" data-editorial-target="editorial-campus-walk"><span>02</span> 校园漫步</button>
+              <button class="editorial-tab" type="button" role="tab" aria-selected="false" aria-controls="editorial-original" data-editorial-target="editorial-original"><span>03</span> 创意排版</button>
+            </div>
+          </div>
+          <div class="editorial-panel-wrap">
+            <div class="editorial-slices editorial-panel is-active" id="editorial-youth-weekly" role="tabpanel" aria-label="《青年发展周报》排版长图"><img src="assets/editorial-youth-weekly-01.jpg" alt="《青年发展周报》排版第 1 段" /><img src="assets/editorial-youth-weekly-02.jpg" alt="《青年发展周报》排版第 2 段" /><img src="assets/editorial-youth-weekly-03.jpg" alt="《青年发展周报》排版第 3 段" /><img src="assets/editorial-youth-weekly-04.jpg" alt="《青年发展周报》排版第 4 段" /><img src="assets/editorial-youth-weekly-05.jpg" alt="《青年发展周报》排版第 5 段" /><img src="assets/editorial-youth-weekly-06.jpg" alt="《青年发展周报》排版第 6 段" /></div>
+            <div class="editorial-slices editorial-panel" id="editorial-campus-walk" role="tabpanel" aria-label="《校园漫步》排版长图" hidden><img src="assets/editorial-campus-walk-01.jpg" alt="《校园漫步》排版第 1 段" /><img src="assets/editorial-campus-walk-02.jpg" alt="《校园漫步》排版第 2 段" /><img src="assets/editorial-campus-walk-03.jpg" alt="《校园漫步》排版第 3 段" /><img src="assets/editorial-campus-walk-04.jpg" alt="《校园漫步》排版第 4 段" /><img src="assets/editorial-campus-walk-05.jpg" alt="《校园漫步》排版第 5 段" /><img src="assets/editorial-campus-walk-06.jpg" alt="《校园漫步》排版第 6 段" /><img src="assets/editorial-campus-walk-07.jpg" alt="《校园漫步》排版第 7 段" /><img src="assets/editorial-campus-walk-08.jpg" alt="《校园漫步》排版第 8 段" /><img src="assets/editorial-campus-walk-09.jpg" alt="《校园漫步》排版第 9 段" /></div>
+            <div class="editorial-slices editorial-panel" id="editorial-original" role="tabpanel" aria-label="创意排版长图" hidden><img src="assets/editorial-part-1.jpg" alt="排版长图第一部分" /><img src="assets/editorial-part-2.jpg" alt="排版长图第二部分" /><img src="assets/editorial-part-3.jpg" alt="排版长图第三部分" /><img src="assets/editorial-part-4.jpg" alt="排版长图第四部分" /><img src="assets/editorial-part-5.jpg" alt="排版长图第五部分" /></div>
+          </div>
+        </article>
+        <script>
+          (function () {
+            var tabs = document.querySelectorAll('.editorial-tab');
+            var panels = document.querySelectorAll('.editorial-panel');
+            tabs.forEach(function (tab) {
+              tab.addEventListener('click', function () {
+                var target = tab.getAttribute('data-editorial-target');
+                tabs.forEach(function (item) {
+                  item.classList.toggle('is-active', item === tab);
+                  item.setAttribute('aria-selected', item === tab ? 'true' : 'false');
+                });
+                panels.forEach(function (panel) {
+                  var active = panel.id === target;
+                  panel.classList.toggle('is-active', active);
+                  panel.hidden = !active;
+                  if (active) panel.scrollLeft = 0;
+                });
+              });
+            });
+          }());
+        </script>
+        <div class="manuscript-title"><div><p>曾参与制作的校友册稿件</p><h3>文案</h3></div><span>ARTICLE MANUSCRIPT</span></div>
+        <div class="manuscript-pages" aria-label="郑玉平校友采访稿原始页面，按页码顺序排列"><figure><img src="assets/alumni-article-page-1.png" alt="校友采访稿原稿第1页" /><figcaption>01 / 05</figcaption></figure><figure><img src="assets/alumni-article-page-2.png" alt="校友采访稿原稿第2页" /><figcaption>02 / 05</figcaption></figure><figure><img src="assets/alumni-article-page-3.png" alt="校友采访稿原稿第3页" /><figcaption>03 / 05</figcaption></figure><figure><img src="assets/alumni-article-page-4.png" alt="校友采访稿原稿第4页" /><figcaption>04 / 05</figcaption></figure><figure><img src="assets/alumni-article-page-5.png" alt="校友采访稿原稿第5页" /><figcaption>05 / 05</figcaption></figure></div>
+        <details class="full-article"><summary>阅读全文 <span>FULL ARTICLE</span></summary><article><p class="article-kicker">人物名片</p><p>郑玉平，2014届统计学专业毕业生。曾任学院团委科技协会会长助理、班级副班长。在校期间，主编校内期刊《大数据革命》并发行5期；参与某大型经管论坛相关编辑工作，并与团队合编《计量经济学杂记》电子书。现就职于联合利华（中国），担任内部 AI 实验室首席数据科学家。</p><h3>AI时代的弄潮儿：首席数据科学家的人生竞赛</h3><p>从统计学专业的大一新生，到联合利华（中国）内部 AI 实验室首席数据科学家，郑玉平走过了他磨剑十年的人生旅程。2010年，他考入浙江财经大学东方学院，在信息学院学习统计学专业。正值东方学院长安校区初建，在他的印象中，当时的母校道路泥泞，一些教学楼还只有地基，图书馆旁边的湖杂草丛生。回过头想，这正是国家飞速发展的见证，郑玉平就像一个满腔热血的开荒者，和学校一起成长，耕耘不辍。</p><h4>启航，在竞赛中提升自我</h4><p>大学是人生的一个新起点。郑玉平从进入母校第一天开始，就有清醒的认识：要在学习中成长，积累知识、锻炼技能、拓宽视野、探索自我。除了专业知识的学习，在老师鼓励和自己浓厚兴趣驱使下，他尝试接触更多应用层面的课题，决定把学习到的统计学知识应用在竞赛当中。</p><p>面对众多科研命题，他反复研究优秀竞赛案例，不断向老师请教，并在网上学习课本之外的知识。从一开始模仿优秀科研作品的解题思路，到之后可以集众多优秀作品之所长，构筑更加完善的解题过程。同时，他积极参与学校社团组织，作为学院团委科技协会会长助理，他认为，在科技协会可以接触到更多优秀的同学、优秀的作品，这些都可以反哺到自己的竞赛中。</p><p>研究生阶段，他继续在学习和实践中带领团队攻坚克难。回忆参与校内期刊的经历，他说：“刚开始的时候，对于期刊编辑基本是零经验，如何选择内容稿件、如何排版、如何印刷、如何分发等问题，都摆在面前。”为了挑选稿件，团队甚至组织小组会议；为一个小小的版面调整，可能会花好几天时间。随着一期又一期的完成，期刊从最初的生涩变得越来越专业，也逐渐形成了固定的风格。</p><h4>扬帆，在实践中砥砺前行</h4><p>随后的实习生涯，是人生的又一场竞赛。郑玉平先了解领导的意图，再准备科研所需的数据并做好处理工作，随后利用学校内外学到的编程知识开展应用。他深刻体会到理论知识和实际操作之间的差距：在公司，需要将课本上的理论知识灵活运用到复杂的工作场景中。</p><p>有一次实习期间，他的任务是帮助优化一个老旧的数据处理流程。这个流程效率低下，经常出错。他尝试用自动化知识改进流程，把重复性工作自动化。实际操作中出现了许多未曾遇到的问题，他便查阅资料、向前辈请教，甚至在线上社区发帖求助，最终完成流程优化，获得领导和同事的认可。</p><p>“统计学在数据分析上有着非常扎实的理论基础，而机器学习正是需要这种能力来分析大量的数据，从中提取模式和趋势。”通过不断学习与实践，他逐渐积累技术储备，进入人工智能领域。</p><h4>破浪，在创新中勇立潮头</h4><p>作为 AI 实验室的首席数据科学家，郑玉平希望自己不仅是技术开发者，更是能够带领团队向前走的领导者。他和团队曾开展用户数据分析项目，目标是更准确地理解用户行为、提供更贴合的服务。他提议开发属于团队自己的分析框架，团队从头搭建原型，不断测试数据模型，有时为了适应需求还要重新编写算法。最终，自研分析框架的效果优于此前使用的模型，能够更精准地识别用户需求、预测行为模式。</p><p>他总结道：创新不一定非得是惊天动地的发明，有时候只是对现有事物的一点点改进；团队的力量无可替代；也要敢于尝试，不怕失败。</p><h4>寄语</h4><p>回望求学和工作生涯，学习是郑玉平不变的坚持。母校25周年之际，他想对学弟学妹说：保持持续的好奇心和学习欲望。哪怕在很多人眼中已经算是专家，学无止境，永远都有新东西等待探索。只有不断学习新知识，才能在变化的市场中保持竞争力。</p></article></details>
+
+        <div class="split-title"><h3>视频</h3><span>VIDEO WORKS · 仅供面试／交流展示</span></div>
+        <div class="videos">
+          <a class="video-card video-red video-private video-link" href="https://pan.baidu.com/s/1J_1apBOBWiHjPtMbAiseYQ" target="_blank" rel="noopener noreferrer" aria-label="打开思政微课 1 的百度网盘分享链接"><img class="video-cover" src="assets/video-cover-civics-01.jpg" alt="思政微课 1 作品封面" /><span>01</span><h3>思政微课 1</h3><p>独立拍摄与剪辑</p><div class="private-video-note"><b>点击封面查看完整视频 ↗</b><small>百度网盘提取码：349q</small></div></a>
+          <a class="video-card video-blue video-private video-link" href="https://pan.baidu.com/s/1C1l0qPFDF98qG4tv0cK_0A" target="_blank" rel="noopener noreferrer" aria-label="打开思政微课 2 的百度网盘分享链接"><img class="video-cover" src="assets/video-cover-civics-02.jpg" alt="思政微课 2 作品封面" /><span>02</span><h3>思政微课 2</h3><p>独立拍摄与剪辑</p><div class="private-video-note"><b>点击封面查看完整视频 ↗</b><small>百度网盘提取码：gtek</small></div></a>
+          <a class="video-card video-blue video-private video-link video-portrait" href="https://pan.baidu.com/s/1AuLzZJO8P6OGkVHIN7iXiQ" target="_blank" rel="noopener noreferrer" aria-label="打开创意音乐短片的百度网盘分享链接"><img class="video-cover" src="assets/video-cover-music-new.jpg" alt="创意音乐短片作品封面" /><span>03</span><h3>创意音乐短片</h3><p>独立拍摄与剪辑</p><div class="private-video-note"><b>点击封面查看完整视频 ↗</b><small>百度网盘提取码：x2j1</small></div></a>
+          <a class="video-card video-yellow video-private video-link" href="https://pan.baidu.com/s/1T_hc-UaMZCJax_u5jb8V-w" target="_blank" rel="noopener noreferrer" aria-label="打开活动快剪的百度网盘分享链接"><img class="video-cover" src="assets/video-cover-activity-new.jpg" alt="活动快剪作品封面" /><span>04</span><h3>活动快剪</h3><p>独立拍摄与剪辑</p><div class="private-video-note"><b>点击封面查看完整视频 ↗</b><small>百度网盘提取码：mpfy</small></div></a>
+        </div>
+      </section>
+
+      <section class="section impact" id="impact" aria-labelledby="impact-title">
+        <div class="section-intro impact-intro">
+          <p class="eyebrow">02 / IMPACT</p>
+          <h2 id="impact-title">传播影响力</h2>
+          <p>有些内容的起点，是一次不经意的发现。我的工作，是把它变成一个能被看见、被理解、被记住的故事。</p>
+        </div>
+        <article class="feature-story feature-blue">
+          <img src="assets/cctv-xinwen-lianbo.jpg" alt="央视新闻联播报道截图" />
+          <div><p class="impact-label">央视新闻 · 故事 01 <span>CCTV NEWS · STORY 01</span></p><h3>中秋晚会上的相聚</h3><p>亚运中秋晚会现场，我所在的志愿者团队与来自不同国家的朋友共同参与、交流和庆祝。镜头记录下跨越语言的真诚互动，也让这份相聚被更多人看见。</p><p class="story-highlight">该现场故事获得央视新闻报道。</p><span class="story-mark">↗</span></div>
+        </article>
+        <article class="feature-story feature-red">
+          <div><p class="impact-label">央视新闻 · 故事 02 <span>CCTV NEWS · STORY 02</span></p><h3>从运动员到“小青荷”</h3><p>在亚运宣传工作中，我发现了一位从运动员转变为“小青荷”志愿者的故事。这个身份的改变背后，是对赛事的热爱，也是继续参与亚运、服务亚运的选择。</p><p class="story-highlight">我完成线索挖掘并上报，选题随后获得关注，登上央视《新闻直播间》报道。</p><span class="story-mark">◌</span></div>
+          <img src="assets/cctv-newsroom.jpg" alt="央视新闻直播间报道截图" />
+        </article>
+        <div class="tenk">
+          <div class="tenk-copy"><p class="impact-label">10万+ 内容传播 <span>10W+ CONTENT</span></p><h3>让内容真正抵达读者</h3><p><strong>10万+图文：</strong>我作为编辑与设计者完成信息组织与视觉表达。<br /><strong>10万+视频：</strong>我发现运动员因自行车故障无法参赛、志愿者陪伴照顾并协助其回国的故事，负责线索挖掘与现场拍摄，最终形成 10万+ 播放的视频内容。</p></div>
+          <figure><img src="assets/100k-article.jpg" alt="十万加推文原始截图" /><figcaption>10万+ 图文传播｜编辑与设计</figcaption></figure>
+          <figure><img src="assets/100k-video.jpg" alt="十万加视频原始截图" /><figcaption>10万+ 视频传播｜线索挖掘与上报</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section journey" id="journey" aria-labelledby="journey-title">
+        <div class="section-intro"><p class="eyebrow">03 / JOURNEY</p><h2 id="journey-title">宣传经历</h2><p>能力来自一次次完整的传播任务：理解现场、发现信息、组织素材，再把它变成可以抵达人的表达。</p></div>
+        <ol class="timeline">
+          <li><span class="timeline-no">01</span><div><h3>校团委宣传部</h3><p class="role">负责人</p><p class="tag">全流程内容制作</p><p>参与校园活动宣传、公众号与抖音运营、视频创作与团队协作；在一次次内容发布中，建立从策划到传播的完整工作方法。</p></div></li>
+          <li><span class="timeline-no">02</span><div><h3>杭州亚运会与亚残运会</h3><p class="role">校宣传工作负责人</p><p class="tag">信息捕捉与现场叙事</p><p>在高密度的赛事现场，从海量信息中寻找值得讲述的人与事，并通过影像与文字把一个瞬间转化为可以被更多人看见的故事。</p></div></li>
+          <li><span class="timeline-no">03</span><div><h3>“创青春”新媒体编辑工作室</h3><p class="role">实训生</p><p class="tag">文案策划与排版能力</p><p>参与公众号栏目策划与编辑、后台数据分析及短视频制作，建立从选题、标题到版式和传播反馈的内容判断。</p></div></li>
+          <li><span class="timeline-no">04</span><div><h3>中国大学生在线新媒体编辑工作室</h3><p class="role">实训生</p><p class="tag">灵活选题与创意表达</p><p>从学生视角寻找更有共鸣的切口，把日常观察与热点话题转化为轻量、清晰且有传播性的内容。</p></div></li>
+        </ol>
+      </section>
+    </main>
+    <footer><span>张佳聪 · 视觉传播作品集</span><a href="#top">回到顶部 ↑</a></footer>
+  </body>
 </html>
