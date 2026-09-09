@@ -1,0 +1,73 @@
+/* Refinements: clearer bilingual impact labels and an ordered exhibition grid. */
+.impact-label {
+  margin: 0;
+  color: #dce9f5;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1.5;
+}
+
+.impact-label span {
+  margin-left: 10px;
+  font: 700 11px/1 Arial, sans-serif;
+  letter-spacing: .13em;
+  white-space: nowrap;
+  opacity: .9;
+}
+
+.hero-name {
+  margin: 24px 0 -14px;
+  color: var(--red);
+  font-family: Georgia, "Songti SC", serif;
+  font-size: clamp(27px, 3vw, 46px);
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+
+.hero-intro {
+  max-width: 450px;
+  color: var(--ink);
+  font-size: clamp(18px, 1.7vw, 25px);
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+.numbers strong:last-child { font-size: clamp(28px, 3vw, 45px); letter-spacing: -.04em; }
+
+.posters {
+  height: 690px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 14px;
+  padding: 14px;
+  background: #e8e3da;
+  border: 1px solid rgba(20, 34, 53, .12);
+}
+
+.poster {
+  position: static;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: none;
+  transform: none;
+}
+
+.poster:hover { transform: none; }
+.poster-a { grid-column: span 4; grid-row: span 6; }
+.poster-b { grid-column: span 4; grid-row: span 6; }
+.poster-c { grid-column: span 4; grid-row: span 2; }
+.poster-d { grid-column: span 4; grid-row: span 4; }
+
+@media (max-width: 720px) {
+  .impact-label { font-size: 14px; }
+  .impact-label span { display: block; margin: 7px 0 0; font-size: 10px; }
+  .hero-name { margin: 20px 0 -8px; font-size: 28px; }
+  .hero-intro { font-size: 18px; }
+  .posters { height: 620px; grid-template-columns: 1fr 1fr; grid-template-rows: 1.15fr 1fr 1fr; gap: 9px; padding: 9px; }
+  .poster-a, .poster-b { grid-column: span 1; grid-row: span 2; }
+  .poster-c { grid-column: span 2; grid-row: span 1; }
+  .poster-d { grid-column: span 2; grid-row: span 1; }
+}
